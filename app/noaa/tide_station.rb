@@ -32,7 +32,7 @@ module Noaa
     end
 
     def csv_file_name
-      "tides/station#{station_id}_year#{import_year}.csv"
+      "lib/assets/tides/station#{station_id}_year#{import_year}.csv"
     end
 
     def tides
