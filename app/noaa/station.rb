@@ -1,7 +1,7 @@
 require 'csv'
 require 'ostruct'
-require './lib/noaa/stations'
-require './lib/noaa/tide'
+require 'stations'
+require 'tide'
 
 module Noaa
   class Station < OpenStruct
@@ -55,7 +55,7 @@ module Noaa
     end
 
     def csv_file_name
-      "tides/station#{station_id}_year#{tide_year}.csv"
+      "lib/assets/tides/station#{station_id}_year#{tide_year}.csv"
     end
 
   end

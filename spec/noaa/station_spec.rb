@@ -1,6 +1,6 @@
 require 'station'
 
-describe Station do
+describe Noaa::Station do
 
   subject { described_class }
 
@@ -13,16 +13,16 @@ describe Station do
   describe ".all" do
     it "returns all the stations" do
       expect(subject.all.count).to eq(3021)
-      expect(subject.all.first).to be_a(Station)
+      expect(subject.all.first).to be_a(Noaa::Station)
     end
   end
 
   describe "#tides" do
     it "shows all tides" do
-      expect(Station.all.first.tides).to be_a(Array)
+      expect(described_class.all.first.tides).to be_a(Array)
     end
     it "is a collection of Tides" do
-      expect(subject.all.first.tides.first).to be_a(Tide)
+      expect(subject.all.first.tides.first).to be_a(Noaa::Tide)
     end
   end
 
