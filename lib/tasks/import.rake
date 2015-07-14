@@ -1,5 +1,3 @@
-#
-# These should only be run in development.
 namespace :import do
   desc "import all the NOAA tide stations"
   task noaa_stations: :environment do

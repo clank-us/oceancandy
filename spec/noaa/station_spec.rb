@@ -1,4 +1,4 @@
-require 'station'
+require 'noaa/station'
 
 describe Noaa::Station do
 

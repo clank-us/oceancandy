@@ -1,4 +1,4 @@
 --color
 --require spec_helper
 
--I app/noaa
+-I lib/noaa
