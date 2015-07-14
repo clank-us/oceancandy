@@ -15,6 +15,7 @@ gem 'pg'
 gem 'rails'
 gem 'sass-rails'
 gem 'thin'
+gem 'uglifier'
 
 group :development, :test do
   gem 'cucumber-rails', require: false
