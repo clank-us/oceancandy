@@ -1,4 +1,4 @@
-require 'noaa/station'
+require 'rails_helper'
 
 describe Noaa::Station do
 
@@ -29,12 +29,26 @@ describe Noaa::Station do
   describe "#tides_for_date" do
     it "shows all tides for a passed in date" do
       tides = subject.all.first.tides_for_date("2014-06-06")
-      expect(tides.count).to eq(4)
+      expect(tides.count).to eq(3)
     end
 
     it "shows all tides for today when now date is passed in" do
-      tides = subject.all.first.tides_for_date(nil)
+      tides = subject.all.first.tides_for_date()
       expect(tides.count).to eq(4)
+    end
+  end
+
+  describe "grouped_tides_for_date" do
+    it "groups tides by tide" do
+      tides = subject.all.first.grouped_tides_for_date
+      expect(tides).to be_a Hash
+    end
+  end
+
+  describe "sms_tides_for_date" do
+    it "formats for sms" do
+      tides = subject.all.first.sms_tides_for_date
+      expect(tides).to eq(":)\nWed, Jul 15 - 2015\nHigh-> 11:10 AM | 11:28 PM\nLow -> 05:15 AM | 05:32 PM\n")
     end
   end
 

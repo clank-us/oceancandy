@@ -3,6 +3,12 @@ require 'ostruct'
 module Noaa
   class Tide < OpenStruct
 
+    attr_accessor :time_zone
+
+    def time_zone
+      @time_zone ||= "Eastern Time (US & Canada)"
+    end
+
     def to_hash
       {
         time: time.to_s,
@@ -18,7 +24,11 @@ module Noaa
     end
 
     def time
-      @time ||= Time.parse(super)
+      @time ||= Time.parse(super).in_time_zone(time_zone)
+    end
+
+    def hour
+      time.to_s(:hour)
     end
 
     def tide

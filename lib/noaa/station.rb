@@ -33,7 +33,18 @@ module Noaa
       end
     end
 
-    def tides_for_date(date)
+    def sms_tides_for_date(date=nil)
+      date ||= Date.today
+      <<-SMS
+:)
+#{date.to_s(:us) }
+High-> #{grouped_tides_for_date["High"].map{ |tide| tide.hour }.join(" | ") }
+Low -> #{grouped_tides_for_date["Low"].map{ |tide| tide.hour }.join(" | ") }
+SMS
+
+    end
+
+    def tides_for_date(date=nil)
       if date.nil?
         query_date = Time.now
       else
@@ -45,6 +56,12 @@ module Noaa
     end
 
     private
+
+    def grouped_tides_for_date(date=nil)
+      tides_for_date(date).group_by do |tide|
+        tide.tide
+      end
+    end
 
     def raw_tides
       @tides_table ||= CSV.read(csv_file_name, headers: true)
