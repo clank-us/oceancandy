@@ -1,0 +1,5 @@
+Date::DATE_FORMATS[:full_us] = '%a, %b %d %l:%m:%S %p'
+Time::DATE_FORMATS[:full_us] = '%a, %b %d %l:%m:%S %p'
+Date::DATE_FORMATS[:us] = '%a, %b %d - %Y'
+Time::DATE_FORMATS[:us] = '%a, %b %d - %Y'
+Time::DATE_FORMATS[:hour] = '%I:%M %p'
