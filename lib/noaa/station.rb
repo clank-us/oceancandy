@@ -55,13 +55,13 @@ SMS
       end
     end
 
-    private
-
     def grouped_tides_for_date(date=nil)
       tides_for_date(date).group_by do |tide|
         tide.tide
       end
     end
+
+    private
 
     def raw_tides
       @tides_table ||= CSV.read(csv_file_name, headers: true)
