@@ -2,7 +2,7 @@ class Messager
 
   attr_reader :users
 
-  def self.nofify_users(users)
+  def self.notify_users(users=User.all)
     new(users).notify_users
   end
 
