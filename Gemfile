@@ -15,6 +15,7 @@ gem 'pg'
 gem 'rails'
 gem 'sass-rails'
 gem 'thin'
+gem 'twilio-ruby'
 gem 'uglifier'
 
 group :development, :test do
