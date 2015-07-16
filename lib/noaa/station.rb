@@ -17,6 +17,16 @@ module Noaa
       end
     end
 
+    def self.select_options
+      grouped_stations.map do |state, stations|
+        [state, stations.map{ |station| [station.name, station.station_id] }]
+      end.to_h
+    end
+
+    def self.grouped_stations
+      all.group_by(&:state_name)
+    end
+
     def to_hash
       {
         name: name,
