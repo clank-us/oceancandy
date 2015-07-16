@@ -1,14 +1,38 @@
 # Ocean Candy
 
-## Picks a station
+Receive a text of the tides in a specific location every day.
 
-Given I open the app
-Then I see a list of states
+## API
 
-When I pick a state
-Then I see a list of stations for that state
+```
+/stations
+```
+Return a json object of all the stations.
 
-When I pick a station
-Then I see the tides for today
-- The high tides
-- The low tides
+```
+
+/stations/:station_id
+```
+Return todays tides for the given station
+
+## Installation
+
+```
+git clone git@github.com:clank-us/oceancandy.git
+
+bundle --jobs 4
+
+rake db:setup
+
+rake
+```
+
+## Importing Data
+
+__NOTE__: this should only be done in development. Then just commit the new csv files and re deploy.
+
+To import tides for a year:
+
+```
+rake import:tides YEAR=<year>
+```
