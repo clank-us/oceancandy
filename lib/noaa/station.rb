@@ -19,7 +19,7 @@ module Noaa
 
     def self.select_options
       grouped_stations.map do |state, stations|
-        [state, stations.map{ |station| [station.name, station.station_id] }]
+        [state, stations.map{ |station| [station.name.titleize, station.station_id] }]
       end.to_h
     end
 

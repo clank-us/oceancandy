@@ -14,3 +14,7 @@
 //= require jquery
 //= require selectize
 //
+
+$(function(){
+  $("#new_user select").selectize();
+})

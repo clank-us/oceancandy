@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  expose(:user)
+
   before_action :set_headers
 
   def stations

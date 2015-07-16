@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150715214911) do
 
   create_table "users", force: :cascade do |t|
     t.string   "phone"
-    t.text     "station_ids", default: [], array: true
+    t.string   "station_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

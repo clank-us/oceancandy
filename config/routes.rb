@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'stations/:station_id', to: 'pages#station'
   get 'stations/:station_id/:tides', to: 'pages#station'
 
+  resources :users, only: [:new, :create]
+
 end

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
     message: "Must be exactly 10 digits"
   }
 
+  validates_presence_of :station_id
+
   def todays_tides_text_body
     station.sms_tides_for_date
   end
@@ -14,7 +16,7 @@ class User < ActiveRecord::Base
   private
 
   def station
-    Noaa::Station.find(station_ids.first)
+    Noaa::Station.find(station_id)
   end
 
 end
