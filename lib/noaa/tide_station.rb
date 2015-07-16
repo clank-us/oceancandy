@@ -10,7 +10,7 @@ module Noaa
       @import_date = Time.new(@import_year).strftime('%Y%m%d')
 
       if File.exists?(csv_file_name)
-        puts csv_file_name + "EXISTS"
+        puts csv_file_name + " EXISTS"
         return false
       end
 
@@ -27,7 +27,7 @@ module Noaa
           csv << [time.to_s, tide[3], tide[4], tide[5]]
         end
       end
-      puts name + "-" + station_id + "ADDED"
+      puts name + "-" + station_id + " ADDED"
       true
     end
 
