@@ -36,7 +36,6 @@ module Noaa
     def sms_tides_for_date(date=nil)
       date ||= Date.today
       <<-SMS
-:)
 #{date.to_s(:us) }
 High-> #{grouped_tides_for_date["High"].map{ |tide| tide.hour }.join(" | ") }
 Low -> #{grouped_tides_for_date["Low"].map{ |tide| tide.hour }.join(" | ") }

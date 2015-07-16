@@ -33,7 +33,7 @@ describe Noaa::Station do
     end
 
     it "shows all tides for today when now date is passed in" do
-      tides = subject.all.first.tides_for_date()
+      tides = subject.all.first.tides_for_date('2015-07-15')
       expect(tides.count).to eq(4)
     end
   end
@@ -47,8 +47,8 @@ describe Noaa::Station do
 
   describe "sms_tides_for_date" do
     it "formats for sms" do
-      tides = subject.all.first.sms_tides_for_date
-      expect(tides).to eq(":)\nWed, Jul 15 - 2015\nHigh-> 11:10 AM | 11:28 PM\nLow -> 05:15 AM | 05:32 PM\n")
+      tides = subject.all.first.sms_tides_for_date(Date.parse('2015-07-15'))
+      expect(tides).to eq("Wed, Jul 15 - 2015\nHigh-> 11:57 AM\nLow -> 06:02 AM | 06:19 PM\n")
     end
   end
 
