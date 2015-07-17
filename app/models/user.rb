@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :station_id
 
+  validates_uniqueness_of :phone
+
   def todays_tides_text_body
     station.sms_tides_for_date
   end
