@@ -36,35 +36,28 @@ module Noaa
       }
     end
 
-    def tides(year = Time.now.year)
+    def tides(year = Date.today.year)
       @tide_year = year
       raw_tides.map do |raw_tide|
         Tide.new(raw_tide.to_h)
       end
     end
 
-    def sms_tides_for_date(date=nil)
-      date ||= Date.today
+    def sms_tides_for_date(date=Date.today)
       <<-SMS
 #{date.to_s(:us) }
-High-> #{grouped_tides_for_date["High"].map{ |tide| tide.hour }.join(" | ") }
-Low -> #{grouped_tides_for_date["Low"].map{ |tide| tide.hour }.join(" | ") }
+High-> #{grouped_tides_for_date()["High"].map{ |tide| tide.hour }.join(" | ") }
+Low -> #{grouped_tides_for_date()["Low"].map{ |tide| tide.hour }.join(" | ") }
 SMS
-
     end
 
-    def tides_for_date(date=nil)
-      if date.nil?
-        query_date = Time.now
-      else
-        query_date = Time.parse(date)
-      end
-      tides(query_date.year).select do |tide|
-        tide.is_on_date?(query_date)
+    def tides_for_date(date=Date.today)
+      tides(date.year).select do |tide|
+        tide.is_on_date?(date)
       end
     end
 
-    def grouped_tides_for_date(date=nil)
+    def grouped_tides_for_date(date=Date.today)
       tides_for_date(date).group_by do |tide|
         tide.tide
       end
