@@ -1,16 +1,15 @@
-%h1 Ocean Candy
+%section#new_user
+  = form_for user, url: root_path do |f|
+    %fieldset
+      %dl
+        %dt= f.label :phone, "Phone Number"
+        %dd= f.telephone_field :phone, placeholder: "555-123-4567"
+      %dl
+        %dt= f.label :station_id, "Tide Location"
+        %dd
+          = f.select :station_id,
+            grouped_options_for_select(Noaa::Station.select_options),
+            prompt: "Select a station"
 
-= form_for user do |f|
-  %fieldset
-    %dl
-      %dt= f.label :phone, "Phone Number"
-      %dd= f.telephone_field :phone, placeholder: "555-123-4567"
-    %dl
-      %dt= f.label :station_id, "Tide location"
-      %dd
-        = f.select :station_id,
-          grouped_options_for_select(Noaa::Station.select_options),
-          prompt: "Select a station"
-
-  %fieldset.actions
-    = f.submit "Sign up"
+    %fieldset.actions
+      = f.submit "Sign up"

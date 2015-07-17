@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+
   expose(:user)
 
   def create
     if user.save
-      redirect_to :root
+      redirect_to :thanks
     else
       render 'pages/home'
     end
