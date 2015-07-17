@@ -27,6 +27,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'rails_12factor'
 end
