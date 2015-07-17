@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def vcard
-    send_data Contact.card.to_s, filename: "OceanCandy.vcf"
+    send_file 'lib/assets/oceancandy.vcf'
   end
 
   private

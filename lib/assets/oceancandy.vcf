@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Candy;Ocean;;;
+FN:OceanCandy
+ORG:OceanCandy;
+TITLE:OceanCandy
+EMAIL;type=INTERNET;type=WORK;type=pref:contact@clank.us
+TEL;type=WORK;type=pref: +1 904 330 1239
+NOTE: Oceandy is a text app that tells you the tides every day.
+item3.URL;type=pref:http\://oceancandy.clank.us
+item3.X-ABLabel:_$!<HomePage>!$_
+END:VCARD
