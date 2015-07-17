@@ -1,5 +1,6 @@
 @import 'whitespace-reset'
 @import 'bourbon'
+@import 'cask'
 
 html body
   font-family: 'Raleway', sans-serif
@@ -9,17 +10,26 @@ html body
   width: 400px
   margin: 0 auto
 
+  +mobile
+    width: 100%
+    padding: 1vw
+
 .optgroup-header
   font-weight: 500
 
 body>header
+  padding-top: 20px
   h1
     font-size: 66px
     text-align: center
+    +mobile
+      font-size: 15vw
+      padding: 2vw
     a
       text-decoration: none
       color: #000000
       font-weight: 300
+
 
 #new_user
   form
