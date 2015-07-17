@@ -20,6 +20,7 @@ gem 'selectize-rails'
 gem 'thin'
 gem 'twilio-ruby'
 gem 'uglifier'
+gem 'vcardigan'
 
 group :development, :test do
   gem 'cucumber-rails', require: false

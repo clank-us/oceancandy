@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   get '/thanks', to: 'pages#thanks'
 
+  get '/vcard', to: 'pages#vcard'
+  get '/contact', to: 'pages#vcard'
+
 end

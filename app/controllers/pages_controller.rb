@@ -15,6 +15,10 @@ class PagesController < ApplicationController
     render json: Oj.dump(tides.group_by{|t| t.tide}, mode: :compat)
   end
 
+  def vcard
+    send_data Contact.card.to_s, filename: "OceanCandy.vcf"
+  end
+
   private
 
   def set_headers
