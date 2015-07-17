@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   validates :phone, format: {
     with: /\A\d{10}\Z/,
-    message: "Must be exactly 10 digits"
+    message: "must be exactly 10 digits"
   }
 
   validates_presence_of :station_id
